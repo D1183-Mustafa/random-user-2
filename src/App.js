@@ -28,12 +28,16 @@ function App() {
 
   const [isOpen, setIsOpen] = useState(false);
 
+  const [load,setLoad] = useState(true)
+
   const [table, setTable] = useState([]);
 
   const getData = () => {
+    
     axios
       .get("https://randomuser.me/api/")
       .then((result) => {
+        setLoad(true)
         setUser({
           name: `${result?.data?.results[0]?.name?.first} ${result?.data?.results[0]?.name?.last}`,
           email: `${result?.data?.results[0]?.email}`,
@@ -44,11 +48,12 @@ function App() {
           image: `${result?.data?.results[0]?.picture?.large}`,
           gender: `${result?.data?.results[0]?.gender}`,
         });
+
         setInfo1("name");
         setInfo2(
           `${result?.data?.results[0]?.name?.first} ${result?.data?.results[0]?.name?.last}`
         );
-      })
+      }).then(setLoad(false))
       .catch((err) => {
         console.log(err);
       });
@@ -57,6 +62,7 @@ function App() {
   useEffect(() => {
     getData();
   }, []);
+
 
   const handleMouseOver = (e) => {
     console.log(e.target.alt);
@@ -115,7 +121,7 @@ function App() {
         </div>
         <div className="random-button">
           <Button variant="contained" onClick={getData}>
-            Random User
+            {load ? "Random User" : "Loading"}
           </Button>
           <Button variant="contained" onClick={handleAddUser}>
             Add User
