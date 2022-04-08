@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  padding-top: 5rem;
 }
 
 .App-logo {
@@ -35,4 +36,53 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.random {
+  background-color: aqua;
+  width: 45vw;
+  min-width: 400px;
+  /* min-height: 400px;
+  height: 65vh; */
+  margin: auto;
+
+}
+
+.random-empty {
+  height: 10vh;
+  min-height: 75px;
+  background-color: blue;
+}
+.random-img {
+  display: flex;
+  justify-content: center;
+}
+.random-icon {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.random-button {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2rem;
+}
+.random-table {
+  display: flex;
+  justify-content: center;
+}
+
+.random-table-div {
+  width: 90%;
+  /* border: 1px solid black; */
+}
+thead *{
+  /* border: 1px solid black;  */
+  background-color: rgb(255, 200, 98);
+  gap: 1rem;
+  padding: 0.8rem;
+}
+
+th {
+  margin: 2rem;
 }
