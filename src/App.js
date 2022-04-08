@@ -66,10 +66,18 @@ function App() {
 
   const handleAddUser = () => {
     setIsOpen(true);
-    setTable([
-      ...table,
-      { name: user.name, email: user.email, phone: user.phone, age: user.age },
-    ]);
+    if(table.length > 0 &&  table[table.length - 1].name !== user.name){
+      setTable([
+        ...table,
+        { name: user.name, email: user.email, phone: user.phone, age: user.age },
+      ]);
+    }else if(table.length === 0) {
+      setTable([
+        ...table,
+        { name: user.name, email: user.email, phone: user.phone, age: user.age },
+      ]);
+    }
+
   };
 
   console.log(table);
