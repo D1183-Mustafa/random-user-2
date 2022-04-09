@@ -11,6 +11,8 @@ import Mailsvg from "./assets/mail.svg";
 import Map from "./assets/map.svg";
 import Phone from "./assets/phone.svg";
 import Padlock from "./assets/padlock.svg";
+import Design from "./assets/design.svg";
+import Logo from "./assets/cw.svg";
 
 function App() {
   const [user, setUser] = useState({
@@ -90,13 +92,18 @@ function App() {
 
   return (
     <div className="App">
+      <div className="container-orange">
+      <img src={Logo} alt="" style={{width:"100px",margin :"1rem"}} />
+      </div>
+      
       <div className="random">
         <div className="random-empty"></div>
         <div className="random-img">
           <Avatar
             alt="Remy Sharp"
             src={user.image}
-            sx={{ width: 100, height: 100 }}
+            sx={{ width: 120, height: 120 }}
+            className="image"
           />
         </div>
         <div>
@@ -108,22 +115,24 @@ function App() {
             alt="name"
             src={user.gender === "male" ? Man : Woman}
             onMouseOver={handleMouseOver}
+            className="icon"
           />
-          <Avatar alt="email" src={Mailsvg} onMouseOver={handleMouseOver} />
+          <Avatar alt="email" src={Mailsvg} onMouseOver={handleMouseOver} className="icon"/>
           <Avatar
             alt="age"
             src={user.gender === "male" ? GrowingMan : GrowingWoman}
             onMouseOver={handleMouseOver}
+            className="icon"
           />
-          <Avatar alt="city" src={Map} onMouseOver={handleMouseOver} />
-          <Avatar alt="phone" src={Phone} onMouseOver={handleMouseOver} />
-          <Avatar alt="password" src={Padlock} onMouseOver={handleMouseOver} />
+          <Avatar alt="city" src={Map} onMouseOver={handleMouseOver} className="icon"/>
+          <Avatar alt="phone" src={Phone} onMouseOver={handleMouseOver} className="icon"/>
+          <Avatar alt="password" src={Padlock} onMouseOver={handleMouseOver} className="icon"/>
         </div>
         <div className="random-button">
-          <Button variant="contained" onClick={getData}>
+          <Button variant="contained" onClick={getData} style={{backgroundColor:"#9c4d8c"}}>
             {load ? "Random User" : "Loading"}
           </Button>
-          <Button variant="contained" onClick={handleAddUser}>
+          <Button variant="contained" onClick={handleAddUser} style={{backgroundColor:"#9c4d8c"}}>
             Add User
           </Button>
         </div>
@@ -151,6 +160,11 @@ function App() {
             </table>
           </div>
         )}
+      </div>
+      <div className="footer">
+        <h2>{"<Dev&Leopars/>"}</h2>
+        <img src={Design} alt="" style={{width:"40px"}}/>
+        <h3>design</h3>
       </div>
     </div>
   );
